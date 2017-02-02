@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Svg Short Name</title>
+        <style type="text/css">
+        /*body{
+          width: 100%;
+          height: 100vh;
+        }
+        span{
+          margin: 50% 50%;
+        }*/
+        </style>
+    </head>
+    <body>
+        <span>
+            <svg width="90" height="90">
+                <circle id="myImage" cx="45" cy="45" r="40" stroke-width="4" stroke="#ddd" fill="#ffffff" />
+                <text id="content"  x="45" y="56" style="fill:#ffffff; text-anchor: middle; font-size: 35px; text-transform: uppercase;"></text>
+            </svg>
+        </span>
+    
+        <script>
+            
+            var myName = {fname:"krushanu", lname:"mohapatra"};
+            
+            
+/* Coding Part */
+            
+            var fullName= myName.fname + myName.lname;
+            var shortName=myName.fname[0]+myName.lname[0];                        // Hetting the context fo name
+            document.getElementById("content").innerHTML = shortName;             // Printing the inner Html.
+
+                       
+            /* calculating length and rgba value */
+                
+                
+                var sum= {full: 0, fst: 0, lst: 0};
+                for (key in fullName) {
+                    sum.full+=fullName.charCodeAt(key);                           // adding up ascii values of each alphabets of Full Name
+                }
+                
+                for (key in myName.fname) {
+                    sum.fst+=myName.fname.charCodeAt(key);                        // adding up ascii values of each alphabets of First Name
+                }
+                
+                for (key in myName.lname) {
+                    sum.lst+=myName.lname.charCodeAt(key);                        // adding up ascii values of each alphabets of last Name
+                }
+                
+                
+                /*getting R */
+                sum.fst+=sum.full;                                                // adding up sum of Full Name + first name
+                if(sum.fst > 255)
+                    sum.fst%=255;
+            
+                /*getting G */
+                if(sum.full > 255)
+                    sum.full%=255;
+            
+                /*getting B */
+                sum.lst+=sum.full;                                                // adding up sum of Full Name + last name
+                if(sum.lst > 255)
+                    sum.lst%=255;
+            
+            var myColor= "rgba(" + sum.fst + ","+ sum.full + "," + sum.lst + ",0.6)";
+            
+            
+//            document.getElementById("myImage").style.fill = myColor;              // Renders color
+            
+            document.getElementById("myImage").style.stroke = myColor;                 // Renders border color
+            document.getElementById("content").style.fill = myColor;                 // Renders text color
+
+            
+/* Coding Part */
+
+        </script>
+        
+
+    </body>
+</html>
+
+<!-- "ABC".charCodeAt(0) // returns 65 -->
