@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>login</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <style type="text/css">
+            
+            body{
+                background: url("babysitter590js.jpg") no-repeat;
+                background-size: cover;
+            }
+            .login-pannel {
+                background-color: rgba(0,0,0,0.3);
+                height: 100vh;
+                // min-width: 30%;
+            }
+            .moveDown{
+                margin-top: 42vh;
+            }
+            .buttons{
+            
+            }
+            .form-control {
+                background-color: rgba(255, 255, 255, 0);
+                color: #fff;
+            }
+            .padding-right-zero {
+                padding-right: 0;
+            }
+            .padding-left-zero {
+                padding-left: 0;
+            }
+            .buttons>input:hover, .buttons>input:hover {
+                background-color: rgba(255,255,255,0.5);
+            }
+            .username, .password {
+                color: #fff;
+                font-size: 18px;
+            }
+            
+    /* Different color for some fields */
+
+    .red::-webkit-input-placeholder {
+        color: #FF0000;
+        font-size: 16px;
+    }
+
+    .red:-moz-placeholder {
+        color: #FF0000;
+        font-size: 16px;
+    }
+
+    .red::-moz-placeholder {
+        color: #FF0000;
+        font-size: 16px;
+    }
+
+    .red:-ms-input-placeholder {
+        color: #FF0000;
+        font-size: 16px;
+    }
+
+        </style>
+    </head>
+    <body>
+        
+        <div class="col-md-4 col-sm-12 col-xs-12 pull-right login-pannel">
+            <div class="moveDown col-md-12">
+                <div>
+                    <div class="username invisible">
+                        Login Id
+                    </div>
+                    <div class="form-group">
+                        <input id="username" type="text" class="form-control input1" placeholder="Login Id" onfocus="focusInput('1')" onkeyup="test($('#username').val(), 'username')" autofocus>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="password invisible">
+                        Password
+                    </div>
+                    <div class="form-group">
+                        <input id="password" type="password" class="form-control input2" placeholder="password" onfocus="focusInput('2')" onkeyup="test($('#password').val(), 'password')">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-xs-6 buttons">
+                        <input type="button" class="form-control" value="register">
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-6 buttons">
+                        <input type="button" class="form-control" value="login">
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+        <script>
+            
+            function focusInput (vari) {
+                $(".input"+vari).focusout(function() {
+                    $(".input"+vari).addClass("red");
+                });
+            }
+            
+            function test (numb, inputClass) {
+                //console.log(test);
+                if(numb.length > 0) 
+                    // console.log(numb.length);
+                    $('.'+inputClass).removeClass('invisible');
+                else
+                    $('.'+inputClass).addClass('invisible');
+                
+            }
+            
+        </script>
+        
+
+    </body>
+</html>
